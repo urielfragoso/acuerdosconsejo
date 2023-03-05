@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="responsables_consejo_form_view" model="ir.ui.view">
+        <field name="name">consejo.responsables.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">consejo.tipo.acuerdo</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+        <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="Acuerdos resposnables">
+                <sheet>
+                    <div class="alert  alert-info" align="center" type="role">
+                        <h4>
+                            Alta de asuntos para Acuerdos que no están en el catálogo
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="asunto" string="Asunto" required="1"/>
+                        </group>
+                        <group>
+                            <field name="tipoasunto" string="Tipo de Asunto" widget="radio"/>
+                        </group>
+                    </group>
+                    <group>
+
+                            <field name="usuarios_id" domain="[('company_id','=',4490)]"
+                                        string="Usuario que dará seguimiento:" required="1"
+                                        options="{'no_quick_create':True, 'no_create': True, 'no_create_edit': True, 'no_open':True, 'no_edit':True}">
+
+
+                                            <tree editable="top">
+
+                                                <field name="display_name" readonly="1"/>
+                                                <field name="direccionuser_id" readonly="1"/>
+
+                                            </tree>
+                                    </field>
+
+                    </group><br/>
+                    <group>
+                        <field name="seguimiento" widget="radio" required="1" string="Se dará seguimiento"  options="{'horizontal':true}"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="responsables_consejo_tree_view" model="ir.ui.view">
+        <field name="name">consejo.responsables.tree.view</field><!--es la etiequeta del nombre de la vista -->
+        <field name="model">consejo.tipo.acuerdo</field><!--esta etiqueta se refiere a nuestro modelo -->
+        <field name="arch" type="xml">
+            <!-- aqui vamos a definir el tipo de vista-->
+            <tree>
+                <field name="asunto" string="Asunto"/>
+                <field name="tipoasunto" string="Tipo de Asunto"/>
+                <field name="seguimiento" string="Se dará seguimiento"/>
+                <field name="usuarios_id" widget="many2many_tags" string="Responsables"/>
+                <field name="create_uid" string="Registró el Asunto"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

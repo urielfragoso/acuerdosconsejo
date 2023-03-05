@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--CATEGORIA DE SEGURIDAD  -->
+    <record id="module_ptp_category" model="ir.module.category">
+        <field name="name">ACUERDOS DE CONSEJO</field>
+    </record>
+
+
+    <record id="administracion_catalogos_group_user" model="res.groups">
+        <field name="name">Administración de catalogos</field>
+        <field name="category_id" ref="module_ptp_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+
+    <record id="captura_acuerdos_group_user" model="res.groups">
+        <field name="name">Captura de acuerdos</field>
+        <field name="category_id" ref="module_ptp_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+
+
+</odoo>

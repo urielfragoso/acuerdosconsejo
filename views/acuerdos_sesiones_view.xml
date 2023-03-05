@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sesiones_consejo_form_view" model="ir.ui.view">
+        <field name="name">consejo.sesiones.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">consejo.sesiones</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+        <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="Sesiones de consejo">
+                <sheet>
+                    <div class="alert  alert-info" align="center" type="role">
+                        <h4>
+                            Alta de Sesiones
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="nosesion" string="No. Sesión" required="1"/>
+                            <field name="tiposesion" required="1" string="Tipo de Sesión" options="{'horizontal':true}" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="fechasesion" required="1" widget="date" string="Fecha de Sesión"/>
+                            <field name="fechalimite" required="1" widget="date" string="Fecha limite de documentación"/>
+                        </group>
+                    </group><br/>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="sesiones_consejo_tree_view" model="ir.ui.view">
+        <field name="name">consejo.sesiones.tree.view</field><!--es la etiequeta del nombre de la vista -->
+        <field name="model">consejo.sesiones</field><!--esta etiqueta se refiere a nuestro modelo -->
+        <field name="arch" type="xml">
+            <!-- aqui vamos a definir el tipo de vista-->
+            <tree>
+                <field name="nosesion" string="No. Sesión"/>
+                <field name="fechasesion" widget="date" string="Fecha de Sesión"/>
+                <field name="tiposesion" string="Tipo de Sesión"/>
+                <field name="create_uid" string="Registró la sesión"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

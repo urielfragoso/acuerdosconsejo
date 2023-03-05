@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--VIEW FORM-->
+    <record id="consejo_acuerdos_form_view" model="ir.ui.view">
+        <field name="name">consejo.acuerdos.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">consejo.acuerdos</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+        <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="Acuerdos resposnables">
+                <sheet>
+                    <div class="alert  alert-success" align="center" type="role">
+                        <h4>
+                            Captura de Acuerdos para seguimiento
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="refid_sesion" string="No. de Sesión" required="1" help="No de Sesion"/>
+                        </group>
+                        <group>
+                            <field name="noacuerdo" string="No. de Acuerdo" required="1" help="No. de Acuerdo"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="refid_tipoacuerdo" widget="selection" string="Asunto para Acuerdo" help="Asunto para acuerdo" required="1"/>
+                    </group><br/>
+                    <group>
+                        <field name="acuerdo" required="1" string="Acuerdo"/>
+                    </group>
+                    <group>
+                        <field name="acuerdoiap" widget="radio" required="1" string="Se relaciona con una  IAP"  options="{'horizontal':true}"/>
+                    </group>
+                    <group attrs="{'invisible': [('acuerdoiap', '=', 'NO')]}">
+                        <field name="refid_iap" widget="selection" attrs="{'required': [('acuerdoiap', '=', 'SI')]}" string="Seleccione Institución"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!--VIEW TREE-->
+    <record id="consejo_acuerdos_tree_view" model="ir.ui.view">
+        <field name="name">consejo.acuerdos.tree.view</field><!--es la etiequeta del nombre de la vista -->
+        <field name="model">consejo.acuerdos</field><!--esta etiqueta se refiere a nuestro modelo -->
+        <field name="arch" type="xml">
+            <!-- aqui vamos a definir el tipo de vista-->
+            <tree>
+                <header>
+                    <button type="object" name="btn_asignar" class="btn btn-success" string="Asignar Acuerdos"/>
+                </header>
+                <field name="noacuerdo" string="No. de Acuerdo"/>
+                <field name="refid_tipoacuerdo" string="Asunto del Acuerdo"/>
+                <field name="refid_iap" string="Institución"/>
+                <field name="usuario_asignado" string="Usuario(s) asignado" widget="many2many_tags"/>
+                <field name="fecha_asignacion" string="Fecha de Asignación"/>
+                <field name="estatus" string="Estatus"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!--VIEW SEARCH-->
+    <record id="consejo_acuerdos_search_view" model="ir.ui.view">
+        <field name="name">consejo.acuerdos.search.view</field><!--es la etiequeta del nombre de la vista -->
+        <field name="model">consejo.acuerdos</field><!--esta etiqueta se refiere a nuestro modelo -->
+        <field name="arch" type="xml">
+            <!-- aqui vamos a definir el tipo de vista-->
+            <search>
+                <!--CAMPOS DE BUSQUEDA -->
+                <field name="noacuerdo" string="No. de Acuerdo"/>
+                <field name="refid_tipoacuerdo" string="Asunto del Acuerdo"/>
+                <field name="refid_iap" string="Institución"/>
+
+                <!--FLTRO DE SOLO INSTITUCIONES-->
+                <filter name="acuerdoiap" string="Acuerdo de IAP" domain="[('acuerdoiap','=','SI')]"/>
+                <filter name="acuerdoiap" string="Acuerdo de JAP" domain="[('acuerdoiap','=','NO')]"/>
+
+                <searchpanel class="account_root">
+                    <field name="refid_sesion" string="No. de Sesión" enable_counters="1"/>
+
+                </searchpanel>
+
+            </search>
+        </field>
+    </record>
+</odoo>

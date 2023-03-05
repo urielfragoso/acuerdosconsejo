@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+    <!--REGISTRO DE SESIONES -->
+    <record id="action_alta_sesiones_consejo_action" model="ir.actions.act_window">
+        <field name="name">Alta de sesiones de consejo</field>
+        <field name="res_model">consejo.sesiones</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain"></field>
+    </record>
+
+        <record id="sesiones_consejo_tree_view_action" model="ir.actions.act_window.view">
+                <field eval="10" name="sequence"/>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="acuerdosconsejo.sesiones_consejo_tree_view"/>
+                <field name="act_window_id" ref="action_alta_sesiones_consejo_action"/>
+        </record>
+        <record id="sesiones_consejo_form_view_action" model="ir.actions.act_window.view">
+                <field eval="10" name="sequence"/>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="acuerdosconsejo.sesiones_consejo_form_view"/>
+                <field name="act_window_id" ref="action_alta_sesiones_consejo_action"/>
+        </record>
+
+    <!-- REGISTRO DE RESPONSABLES-->
+    <record id="action_alta_tipoacuerdo_consejo_action" model="ir.actions.act_window">
+        <field name="name">Alta de tipo de asunto y responsables</field>
+        <field name="res_model">consejo.tipo.acuerdo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain"></field>
+    </record>
+
+        <record id="responsables_consejo_tree_view_action" model="ir.actions.act_window.view">
+                <field eval="10" name="sequence"/>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="acuerdosconsejo.responsables_consejo_tree_view"/>
+                <field name="act_window_id" ref="action_alta_tipoacuerdo_consejo_action"/>
+        </record>
+        <record id="responsables_consejo_form_view_action" model="ir.actions.act_window.view">
+                <field eval="10" name="sequence"/>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="acuerdosconsejo.responsables_consejo_form_view"/>
+                <field name="act_window_id" ref="action_alta_tipoacuerdo_consejo_action"/>
+        </record>
+
+    <!-- CAPTURA DE ACUERDOS-->
+    <record id="action_alta_acuerdos_consejo_action" model="ir.actions.act_window">
+        <field name="name">Captura de Acuerdos</field>
+        <field name="res_model">consejo.acuerdos</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain"></field>
+    </record>
+
+        <record id="consejo_acuerdos_tree_view_action" model="ir.actions.act_window.view">
+                <field eval="10" name="sequence"/>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="acuerdosconsejo.consejo_acuerdos_tree_view"/>
+                <field name="act_window_id" ref="action_alta_acuerdos_consejo_action"/>
+        </record>
+        <record id="consejo_acuerdos_form_view_action" model="ir.actions.act_window.view">
+                <field eval="10" name="sequence"/>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="acuerdosconsejo.consejo_acuerdos_form_view"/>
+                <field name="act_window_id" ref="action_alta_acuerdos_consejo_action"/>
+        </record>
+
+    <menuitem name="Acuerdos de Consejo" id="consejo_menu" sequence="0" web_icon="acuerdosconsejo,static/description/icon.png" />
+        <menuitem name="Administración" id="admon_menu" parent="consejo_menu"  sequence="2" groups="administracion_catalogos_group_user" />
+            <menuitem name="Alta de sesiones" id="sesiones_menu" parent="admon_menu" action="action_alta_sesiones_consejo_action" sequence="1" />
+            <menuitem name="Alta de tipo de Acuerdo" id="responsables_menu" parent="admon_menu" action="action_alta_tipoacuerdo_consejo_action" sequence="2" />
+        <menuitem name="Captura de Acuerdos" id="acuerdos_menu" parent="consejo_menu"  action="action_alta_acuerdos_consejo_action" sequence="3" groups="captura_acuerdos_group_user" />
+</odoo>
+

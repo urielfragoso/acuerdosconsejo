@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_acuerdos_admon_sesiones,Acceso a alta de sesiones,model_consejo_sesiones,administracion_catalogos_group_user,1,1,1,0
+access_acuerdos_admon_tipos_acuerdos,Acceso a alta de tipo de acuerdos y responsables,model_consejo_tipo_acuerdo,administracion_catalogos_group_user,1,1,1,0
+
+
+access_captura_acuerdos_sesiones,Acceso a consulta de sesiones,model_consejo_sesiones,captura_acuerdos_group_user,1,0,0,0
+access_captura_acuerdos_tipos_acuerdos,Acceso a consulta de tipo de acuerdos,model_consejo_tipo_acuerdo,captura_acuerdos_group_user,1,0,0,0
+access_captura_acuerdos,Acceso a captura y asignacion de acuerdos,model_consejo_acuerdos,captura_acuerdos_group_user,1,1,1,0
+
+
