@@ -1,7 +1,7 @@
 
 from odoo import models,fields, api
 from odoo.exceptions import UserError
-
+from datetime import datetime
 
 
 class registroacuerdos(models.Model):
@@ -46,4 +46,24 @@ class registroacuerdos(models.Model):
 
     def btn_asignar(self):
         for record in self:
-            record.id
+            for usuario_asignado in record.usuario_asignado:
+                usuarios = usuario_asignado.id
+                filtro_usuario_asigando = [('RefIdUsuario','=',usuarios),
+                                           ('refid_acuerdo','=',record.id)]
+                usuario_asignado = self.env['consejo.seguimiento.acuerdos'].sudo().search(filtro_usuario_asigando)
+
+                if not usuario_asignado:
+                    record.fecha_asignacion = datetime.now()
+                    record.estatus = 'asignado'
+
+                    nuevo_registro = {'refid_acuerdo': record.id,
+                                      'RefIdUsuario': usuarios,
+                                      'estatus': 'asignado',
+                                      'estatus_acuerdo': 'pendiente'
+                                      }
+                    usuario_asignado.create(nuevo_registro)
+                else:
+                    raise UserError('El acuerdo: '+record.noacuerdo+' ya fue asignado, verifique nuevamente')
+
+
+

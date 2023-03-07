@@ -1,1 +1,1 @@
-from.import sesiones, tipoacuerdo, acuerdos
+from.import sesiones, tipoacuerdo, acuerdos, seguimiento
