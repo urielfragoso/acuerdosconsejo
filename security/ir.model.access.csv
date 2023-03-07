@@ -7,6 +7,7 @@ access_acuerdos_admon_tipos_acuerdos,Acceso a alta de tipo de acuerdos y respons
 
 access_captura_acuerdos_sesiones,Acceso a consulta de sesiones,model_consejo_sesiones,captura_acuerdos_group_user,1,0,0,0
 access_captura_acuerdos_tipos_acuerdos,Acceso a consulta de tipo de acuerdos,model_consejo_tipo_acuerdo,captura_acuerdos_group_user,1,0,0,0
-access_captura_acuerdos,Acceso a captura y asignacion de acuerdos,model_consejo_acuerdos,captura_acuerdos_group_user,1,1,1,0
+access_captura_acuerdos,Acceso a captura y asignacion de acuerdos,model_consejo_acuerdos,captura_acuerdos_group_user,1,1,1,1
+access_asignacion_acuerdos,Acceso a asignacion de acuerdos,model_consejo_seguimiento_acuerdos,captura_acuerdos_group_user,1,1,1,0
 
-
+access_seguimiento_Acuerdos,Acceso a seguimiento de acuerdos,model_consejo_seguimiento_acuerdos,seguimiento_acuerdos_group_user,1,0,1,0

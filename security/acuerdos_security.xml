@@ -19,6 +19,12 @@
         <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
     </record>
 
+    <record id="seguimiento_acuerdos_group_user" model="res.groups">
+        <field name="name">Seguimiento de acuerdos</field>
+        <field name="category_id" ref="module_ptp_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
 
 
 </odoo>
