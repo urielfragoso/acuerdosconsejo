@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--VIEW FORM-->
+    <record id="consejo_seguimiento_acuerdos_form_view" model="ir.ui.view">
+        <field name="name">consejo.seguimiento.acuerdos.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">consejo.seguimiento.acuerdos</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+        <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="Seguimiento">
+                <sheet>
+                    <div class="alert  alert-success" align="center" type="role">
+                        <h4>
+                            Seguimiento  de Acuerdos
+                        </h4>
+                    </div>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!--VIEW TREE-->
+    <record id="consejo_seguimiento_acuerdos_tree_view" model="ir.ui.view">
+        <field name="name">consejo.seguimiento.acuerdos.tree.view</field><!--es la etiequeta del nombre de la vista -->
+        <field name="model">consejo.seguimiento.acuerdos</field><!--esta etiqueta se refiere a nuestro modelo -->
+        <field name="arch" type="xml">
+            <!-- aqui vamos a definir el tipo de vista-->
+            <tree create="false">
+                <field name="noacuerdo" string="No. de Acuerdo"/>
+                <field name="refid_tipoacuerdo" string="Asunto del Acuerdo"/>
+                <field name="refid_iap" string="Institución"/>
+                <field name="fecha_asignacion" string="Fecha de Asignación"/>
+                <field name="estatus" string="Estatus"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!--VIEW SEARCH-->
+<record id="consejo_seguimiento_acuerdos_search_view" model="ir.ui.view">
+        <field name="name">consejo.seguimiento.acuerdos.search.view</field><!--es la etiequeta del nombre de la vista -->
+        <field name="model">consejo.seguimiento.acuerdos</field><!--esta etiqueta se refiere a nuestro modelo -->
+        <field name="arch" type="xml">
+            <!-- aqui vamos a definir el tipo de vista-->
+            <search>
+                <!--CAMPOS DE BUSQUEDA -->
+                <field name="noacuerdo" string="No. de Acuerdo"/>
+
+
+                <searchpanel class="account_root">
+                    <field name="refid_acuerdo" string="No. de Acuerdo" />
+
+                </searchpanel>
+
+            </search>
+        </field>
+    </record>
+</odoo>
