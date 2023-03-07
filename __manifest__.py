@@ -11,6 +11,7 @@
     'data': [
         'security/acuerdos_security.xml',
         'security/ir.model.access.csv',
+        'views/acuerdos_seguimiento_view.xml',
         'views/acuerdos_captura_view.xml',
         'views/acuerdos_responsables_view.xml',
         'views/acuerdos_sesiones_view.xml',
